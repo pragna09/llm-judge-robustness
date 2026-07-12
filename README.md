@@ -1,7 +1,4 @@
-
-readme = '''# LLM Judge Robustness Study
-
-Systematic evaluation of open-source LLM judges under output perturbations.
+# LLM Judge Consistency Under Perturbation
 
 ## Overview
 
@@ -9,26 +6,29 @@ This repository contains code and results for a study testing whether LLM judges
 
 ## Key Findings
 
-- **Typos** cause significant score drops: Llama 3.1 drops to 47% exact match (p < 0.0001), Mistral to 74% (p = 0.003)
-- **Sentence shuffling** is most destructive: 21% category flips in Llama 3.1 (p < 0.0001)
-- **Formatting changes** (filler, bullets) are benign: >80% exact match, p > 0.05
+- **Typos cause significant score drops:** Llama 3.1 drops to 47% exact match (p < 0.0001), Mistral to 74% (p = 0.003)
+- **Sentence shuffling is most destructive:** 21% category flips in Llama 3.1 (p < 0.0001)
+- **Formatting changes (filler, bullets) are benign:** >80% exact match, p > 0.05
 
 ## Repository Structure
+
+```
 ├── src/
-│   ├── experiment.py      # Main experiment code
-│   └── visualize.py       # Figure generation
+│   ├── experiment.py          # Main experiment code
+│   └── visualize.py           # Figure generation
 ├── data/
-│   └── alpaca_eval.json   # Dataset (downloaded automatically)
+│   └── alpaca_eval.json       # Dataset (downloaded automatically)
 ├── results/
-│   ├── judge_consistency_100.csv    # Raw scores
-│   └── consistency_summary.csv      # Computed metrics
+│   ├── judge_consistency_100.csv   # Raw scores
+│   └── consistency_summary.csv     # Computed metrics
 ├── figures/
 │   ├── figure1_exact_match.png
 │   ├── figure_llama_typos_heatmap.png
 │   ├── figure_llama_shuffled_heatmap.png
 │   └── figure4_category_flips.png
 └── paper/
-└── main.tex   
+    └── main.tex
+```
 
 ## Requirements
 
@@ -38,5 +38,7 @@ This repository contains code and results for a study testing whether LLM judges
 - CUDA-capable GPU (A100 recommended, 40GB VRAM)
 
 Install dependencies:
+
 ```bash
 pip install transformers accelerate bitsandbytes pandas numpy matplotlib seaborn scipy
+```
